@@ -16,7 +16,7 @@ module.exports = {
             rl.question('Type File Name: ', (answer) => {
                 fileReference = answer
 
-                rl.question('Type Difficulty: ', (answer) => {
+                rl.question('Type Difficulty (Type 1 for Easy, 2 for Medium, 3 for Hard, 4 for Expert, and 5 for XD): ', (answer) => {
                     switch(answer) {
                         case '1':
                             difficulty = "Easy"

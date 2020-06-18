@@ -16,7 +16,7 @@ module.exports = {
             rl.question('Type File Name: ', (answer) => {
                 fileReference = answer
 
-                rl.question('Type Difficulty: .', (answer) => {
+                rl.question('Type Difficulty: ', (answer) => {
                     difficulty = answer
                     sendReq();
                     rl.close();

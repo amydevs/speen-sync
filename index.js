@@ -17,11 +17,11 @@ const rl = readline.createInterface({
 
 streamPing.pingRtmp().then( async rtmpPingTime => {
   rl.question('Type "C" for client, and type "S" for player server: ', (answer) => {
-    switch(answer) {
-      case "C":
+    switch(answer.toLowerCase()) {
+      case "c":
         startClient.startClient(rtmpPingTime, rl);
         break;
-      case "S":
+      case "s":
         startServer.startServer(rtmpPingTime, rl);
         break;
     } 

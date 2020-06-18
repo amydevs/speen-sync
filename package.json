@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "start": "node .",
+    "build": "pkg .",
+    "build-win": "pkg . -t win"
   },
   "bin": "index.js",
   "author": "",

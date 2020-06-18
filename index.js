@@ -2,13 +2,6 @@ const readline = require('readline');
 const streamPing = require('./js/rtmpPing.js');
 const startServer = require('./js/startServer.js');
 const startClient = require('./js/startClient.js');
-let args = process.argv;
-
-//Command line arguments
-//"spinshare_5ec4a9b219c6f"
-let ip = args[2];
-let fileReference = args[3];
-let difficulty = args[4];
 
 const rl = readline.createInterface({
   input: process.stdin,

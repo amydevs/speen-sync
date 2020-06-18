@@ -8,7 +8,7 @@ module.exports = {
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.write('SpinStart');
             res.end();
-        }).listen(8080);
+        }).listen(80);
         server.on('request', (request, response) => {
         if (request.method == 'POST') {
             let body = '';
@@ -16,9 +16,10 @@ module.exports = {
                 body += data;
             });
             request.on('end', function() {
-                let songArray = querystring.decode(body)
+                let songObject = querystring.decode(body)
                 setTimeout(function(){
-                open('steam://run/1058830//play '+ songArray.fileReference +'.srtb difficulty '+songArray.difficulty+'')
+                console.log("Currently Playing: " + JSON.stringify(songObject))
+                open('steam://run/1058830//play ' + songObject.fileReference + '.srtb difficulty ' + songObject.difficulty + '')
                 }, rtmpPingTime);
             })
         }

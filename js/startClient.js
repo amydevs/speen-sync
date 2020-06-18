@@ -17,8 +17,26 @@ module.exports = {
                 fileReference = answer
 
                 rl.question('Type Difficulty: ', (answer) => {
-                    difficulty = answer
-                    sendReq();
+                    switch(answer) {
+                        case '1':
+                            difficulty = "Easy"
+                            break;
+                        case '2':
+                            difficulty = "Medium"
+                            break;
+                        case '3':
+                            difficulty = "Hard"
+                            break;
+                        case '4':
+                            difficulty = "Expert"
+                            break;
+                        case '5':
+                            difficulty = "XD"
+                            break;
+                    }
+                    console.log(difficulty)
+                    console.log("Game starts in 5 seconds.")
+                    setTimeout(sendReq, 5000);
                     rl.close();
                 });
             });
@@ -32,7 +50,7 @@ module.exports = {
 
         let startOptions = {
             hostname: ip,
-            port: '8080',
+            port: '80',
             method: 'POST',
             headers: {
             'Content-Type': 'application/x-www-form-urlencoded',

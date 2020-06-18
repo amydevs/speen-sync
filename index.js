@@ -6,7 +6,6 @@ const streamPing = require('./rtmpPing.js');
 let args = process.argv;
 
 let ip = args[2];
-console.log(args[2])
 let fileReference = args[3];
 let difficulty = args[4];
 

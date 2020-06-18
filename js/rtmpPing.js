@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 
 module.exports = {
     pingRtmp: async function() {
@@ -17,7 +17,6 @@ module.exports = {
         });
         rtmpReq.on('error', function(err) {
         if (err.code === "ECONNRESET") {
-            console.log("Timeout occurs");
             rtmpResponseTime = 0
             //specific error treatment
         }

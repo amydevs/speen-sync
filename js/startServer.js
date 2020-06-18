@@ -5,6 +5,7 @@ const http = require('http');
 module.exports = {
     startServer: function(rtmpPingTime, rl) {
         const server = http.createServer(function (req, res) {
+            console.log("For people running the server, make sure you have port 80 forwarded.")
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.write('SpinStart');
             res.end();

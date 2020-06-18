@@ -2,17 +2,11 @@ const querystring = require('querystring');
 const open = require('open');
 const http = require('http');
 const readline = require('readline');
-const streamPing = require('./rtmpPing.js');
 let args = process.argv;
 
 let ip = args[2];
 let fileReference = args[3];
 let difficulty = args[4];
-
-streamPing.pingRtmp().then( async rtmpPingTime => {
-  //Command line arguments
-  //"spinshare_5ec4a9b219c6f"
-  
 
   //Server
   if (args.length == 2) {
@@ -29,9 +23,7 @@ streamPing.pingRtmp().then( async rtmpPingTime => {
           });
           request.on('end', function() {
             let songArray = querystring.decode(body)
-            setTimeout(function(){
               open('steam://run/1058830//play "' + fileReference + '.srtb" difficulty ' + difficulty)
-            }, rtmpPingTime);
           })
       }
     });
@@ -83,7 +75,7 @@ streamPing.pingRtmp().then( async rtmpPingTime => {
           if (data == "SpinStart") {
             setTimeout(function(){
               open('steam://run/1058830//play "' + fileReference + '.srtb" difficulty ' + difficulty)
-            }, responseTime + rtmpPingTime);
+            }, responseTime);
           }
         });
       });
@@ -96,6 +88,4 @@ streamPing.pingRtmp().then( async rtmpPingTime => {
       req.end();    
     }
   }
-
-})
 
